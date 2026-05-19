@@ -4,6 +4,8 @@ object carrera {
     var rechazados = [convertible,moto]
     var sedeActual = paris
    
+   
+   // sin estos dos metodos no podes visulizar, ni interatuar con las listas.-
     method aceptado() = aceptados
     method rechazados () = rechazados
     
@@ -25,11 +27,15 @@ object carrera {
             aceptados.add(unVehiculo)
         }else {rechazados.add(unVehiculo)}
     }
-
+    // primera solucion la cual todabia no funciona
     method replanificacionDeSede(unaSede) {
        self.unaSede(unaSede)
-       aceptados.forEach({c=> self.inscricionesDe(c)}) and rechazados.forEach({c=> self.inscricionesDe(c)})
+       const listaUnida = aceptados + rechazados
+       aceptados.clear()
+       rechazados.clear()
+       listaUnida.forEach({c=> self.inscricionesDe(c)})
     } 
+   // segunda solucion propuesta por un compañero la cual tampoc funciona 
     method cambioDeSede(unaSede){
         self.unaSede(unaSede)
         const listaUnidad = aceptados + rechazados
@@ -37,7 +43,10 @@ object carrera {
         rechazados = listaUnidad.filter({c => !self.puedeConpetir(c)})
         
 
-     }   
-
+     }
+    // esto trafoma una lista en un conjuto y de nuevo a una lista, sirver para eliminar los duplicado.    
+    method limpiarDuplicadoDe(unaLista){
+        aceptados = unaLista.asSet().asList()
+    }
 
 }

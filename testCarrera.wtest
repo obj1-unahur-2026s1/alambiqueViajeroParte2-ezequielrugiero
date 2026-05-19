@@ -25,9 +25,9 @@ test "cambio de sede segundo metodo"{
    carrera.inscricionesDe (alambiqueVeloz)  
    carrera.inscricionesDe (convertible)
    carrera.inscricionesDe (moto) 
-    
    carrera.replanificacionDeSede(bagdad)
    carrera.aceptado()
-   assert.equals([chatarra,alambiqueVeloz], carrera.aceptado())
+   carrera.limpiarDuplicadoDe(carrera.aceptado())
+   assert.equals([chatarra, alambiqueVeloz, convertible, moto], carrera.aceptado())
     
 }
