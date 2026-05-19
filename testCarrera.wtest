@@ -1,0 +1,33 @@
+import elAlambiqueViajero.*
+import centro.*
+test "probando listra de inscricion"{
+   carrera.inscricionesDe (chatarra)
+   carrera.inscricionesDe (alambiqueVeloz)  
+   carrera.inscricionesDe (convertible)
+   carrera.inscricionesDe (moto)    
+   assert.equals([chatarra,alambiqueVeloz], carrera.aceptado())
+}
+
+test "cambio de sede a badag"{
+   carrera.inscricionesDe (chatarra)
+   carrera.inscricionesDe (alambiqueVeloz)  
+   carrera.inscricionesDe (convertible)
+   carrera.inscricionesDe (moto) 
+    
+   carrera.cambioDeSede(bagdad)
+   carrera.aceptado()
+   assert.equals([chatarra,alambiqueVeloz], carrera.aceptado())
+    
+}
+
+test "cambio de sede segundo metodo"{
+   carrera.inscricionesDe (chatarra)
+   carrera.inscricionesDe (alambiqueVeloz)  
+   carrera.inscricionesDe (convertible)
+   carrera.inscricionesDe (moto) 
+    
+   carrera.replanificacionDeSede(bagdad)
+   carrera.aceptado()
+   assert.equals([chatarra,alambiqueVeloz], carrera.aceptado())
+    
+}
